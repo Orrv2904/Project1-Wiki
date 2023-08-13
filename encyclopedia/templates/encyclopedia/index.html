@@ -5,12 +5,20 @@
 {% endblock %}
 
 {% block body %}
-    <h1>All Pages</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-md-9">
+            <div class="p-3">
+                <h1 class="mb-4">All Pages</h1>
+                <ul class="list-group">
+                    {% for entry in entries %}
+                        <li class="list-group-item">{{ entry }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <ul>
-        {% for entry in entries %}
-            <li>{{ entry }}</li>
-        {% endfor %}
-    </ul>
 
 {% endblock %}
