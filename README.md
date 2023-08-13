@@ -44,6 +44,24 @@ This is a short video where you can see the project specifications:
 
 The delete function implements the ability to delete an encyclopedia entry. When a POST HTTP request is made, the function retrieves the title of the entry provided in the request. It then checks to see if a file associated with that title exists on the storage system. If the file exists, it is deleted and the user is redirected back to the index page.
 
+         
+### Built with:
+--------------------
+
+  1. [Bootstrap (version: 5)](https://getbootstrap.com/)
+
+  2. [Microsoft Visual code (version:1.81.1)](https://code.visualstudio.com/)
+    
+  3. [Django version (version:3.2.20)](https://www.djangoproject.com/)
+  
+  6. [Jinja2 (version: 3.1)](https://jinja.palletsprojects.com/en/3.1.x/)
+  
+  7. [Python(version 3.11.1)](https://www.python.org/)
+  
+  8. HTML5
+
+  10. Cascading Style Sheets (CSS)
+
 ## Authors
 
 - [@orrv2904](https://github.com/Orrv2904)
