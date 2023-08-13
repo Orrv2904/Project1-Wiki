@@ -113,13 +113,15 @@ def rand(request):
         "content": html_content
     })
 
+# Handles entry deletion if POST request. Deletes the corresponding file and redirects to index.
+# Displays an error message if the entry doesn't exist.
 def delete(request):
     if request.method == 'POST':
         title = request.POST['entry_title']
         filename = f"entries/{title}.md"
         if default_storage.exists(filename):
             default_storage.delete(filename)
-            return redirect('index')  # Redirige al índice después de la eliminación
+            return redirect('index')
         else:
             return render(request, "encyclopedia/error.html", {
                 "message": "Entry not found"
