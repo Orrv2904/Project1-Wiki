@@ -100,7 +100,8 @@ def save_edit(request):
             "content": html_content
             })
     
-
+# Selects a random entry and renders its content as HTML.
+# Returns a random encyclopedia entry page.
 def rand(request):
     allEntries = util.list_entries()
     rand_entry = random.choice(allEntries)
