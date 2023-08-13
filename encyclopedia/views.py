@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from markdown2 import Markdown
 
-
-
 from . import util
 
  # This view renders the index.html with a list of entries.
@@ -23,7 +21,8 @@ def md_to_html(title):
     else:
         return markdowner.convert(content)
     
-# Function call entry
+# Converts the Markdown content of the given title to HTML using md_to_html().
+# Renders either an error page or the entry page based on availability.
 def entry(request, title):
     html_content = md_to_html(title)
     if html_content == None:
@@ -36,7 +35,7 @@ def entry(request, title):
             "content": html_content
         })
 
-# funtion search
+# Handles the search functionality for encyclopedia entries.
 def search(request):
     if request.method == "POST":
         entry_search = request.POST['q']
@@ -55,3 +54,7 @@ def search(request):
             return render(request, "encyclopedia/search.html", {
                 "recommendation": recommendation
             })
+        
+def new_page(request):
+    if request.method == "GET":
+        return render(request, "encyclopedia/new.html")
