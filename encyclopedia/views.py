@@ -54,7 +54,9 @@ def search(request):
             return render(request, "encyclopedia/search.html", {
                 "recommendation": recommendation
             })
-        
+
+# Manages new encyclopedia page creation: renders creation form (GET),
+# processes form data, checks title existence, and renders accordingly (POST).       
 def new_page(request):
     if request.method == "GET":
         return render(request, "encyclopedia/new.html")
@@ -73,7 +75,8 @@ def new_page(request):
                 "title": title,
                 "content": html_content
             })
-        
+
+# Renders the edit form with existing entry content for editing (POST).       
 def edit(request):
     if request.method == 'POST':
         title = request.POST['entry_title']
@@ -82,7 +85,8 @@ def edit(request):
             "title": title,
             "content": content
         })
-    
+
+# Saves edited entry content (POST), updates entry, and renders entry page.    
 def save_edit(request):
     if request.method == 'POST':
         title = request.POST['title']
