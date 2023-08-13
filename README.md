@@ -62,6 +62,51 @@ The delete function implements the ability to delete an encyclopedia entry. When
 
   10. Cascading Style Sheets (CSS)
 
+--------------------
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Orrv2904/Project1-Wiki.git
+```
+
+Install dependencies
+
+In case you want to use a virtual environment:
+
+```bash
+  python3 -m venv environment
+  source environment/bin/activate
+```
+
+Install dependencies with pip
+
+```bash
+  pip install requirements.txt
+```
+
+Go to the project directory
+
+```bash
+  cd Project1-Wiki
+```
+
+runs the migrations
+
+```bash
+  python3 -m manage.py makemigrations
+  python3 -m manage.py migrate
+```
+
+After that
+
+```bash
+  python3 -m manage.py runserver
+```
+    
+
 ## Authors
 
 - [@orrv2904](https://github.com/Orrv2904)
