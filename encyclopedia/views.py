@@ -31,4 +31,8 @@ def entry(request, title):
             "message": "This entry doesn't exits"
         })
     else:
-        return render(request, "encyclopedia/entry.html")
+        return render(request, "encyclopedia/entry.html",{
+            "title": title,
+            "content": html_content
+        })
+
