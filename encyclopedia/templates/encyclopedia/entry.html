@@ -16,6 +16,11 @@
                 <input type="hidden" name="entry_title" value="{{ title }}">
                 <input class="form-control mt-4" type="submit" value="Edit">
             </form>
+            <form class="mb-3" action="{% url 'delete' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="entry_title" value="{{ title }}">
+                <input class="form-control mt-4" type="submit" value="Delete">
+            </form>
             <div class="text-center mt-3">
                 <a href="{% url 'index' %}">Back to home</a>
             </div>

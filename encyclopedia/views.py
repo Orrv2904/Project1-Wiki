@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.core.files.storage import default_storage
 from markdown2 import Markdown
 import random
 
@@ -110,3 +112,15 @@ def rand(request):
         "title": rand_entry, 
         "content": html_content
     })
+
+def delete(request):
+    if request.method == 'POST':
+        title = request.POST['entry_title']
+        filename = f"entries/{title}.md"
+        if default_storage.exists(filename):
+            default_storage.delete(filename)
+            return redirect('index')  # Redirige al índice después de la eliminación
+        else:
+            return render(request, "encyclopedia/error.html", {
+                "message": "Entry not found"
+            })
