@@ -16,7 +16,8 @@
                 <nav class="col-lg-2 col-md-3 bg-light sidebar">
                     <div class="p-3 text-center">
                         <h2 class="mb-4">Wiki</h2>
-                        <form class="mb-3">
+                        <form class="mb-3" action="{% url 'search' %}" method="POST">
+                            {% csrf_token %}
                             <input class="form-control" type="text" name="q" placeholder="Search Encyclopedia">
                         </form>
                         <ul class="list-unstyled">
