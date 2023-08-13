@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from markdown2 import Markdown
+import random
+
 
 from . import util
 
@@ -97,3 +99,13 @@ def save_edit(request):
             "title": title,
             "content": html_content
             })
+    
+
+def rand(request):
+    allEntries = util.list_entries()
+    rand_entry = random.choice(allEntries)
+    html_content = md_to_html(rand_entry)
+    return render(request, "encyclopedia/entry.html",{
+        "title": rand_entry, 
+        "content": html_content
+    })
